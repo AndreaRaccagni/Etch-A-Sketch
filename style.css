@@ -1,21 +1,38 @@
 #container {
   display: flex;
+  justify-items: center;
+  align-items: start;
 }
 
 #grid-container {
   display: flex;
+
   flex-direction: column;
+  height: 480px;
+  width: 480px;
+}
+
+.new-grid {
   border-left: 1pt solid gray;
   border-top: 1pt solid gray;
 }
 
 .row {
   display: flex;
+  flex: 1;
 }
 
 .cell {
+  display: flex;
   border-right: 1pt solid gray;
   border-bottom: 1pt solid gray;
-  width: 20px;
-  height: 20px;
+  flex: 1;
+}
+
+.color {
+  background: black;
+}
+
+button {
+  margin: 0 10px;
 }
