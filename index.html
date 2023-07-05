@@ -10,12 +10,29 @@
   <body>
 
     <div id="container">
-      <div>
-        <button id="start-game">Start game</button>
-        <p id="grid-size"></p>
+      <div id="title">
+        <h1>Etch a Sketch</h1>
+      </div>
+      <div id="game">
+        <div id="info">
+          <button id="start-game">Start game</button>
+          <p id="grid-size"></p>
+          <div id="color-btns-container">
+            <button class="color-btn white">White</button>
+            <button class="color-btn black">Black</button>
+            <button class="color-btn random">Random</button>
+            <button class="color-btn select">Select color</button>
+          </div>
+        </div>
+        <div id="grid-container"></div>
+        <div id="rules">
+          <h2>Rules and tips</h2>        
+          <p id="tip">Hold SHIFT to stop coloring</p>
+        </div>
+
       </div>
       
-      <div id="grid-container"></div>
+
     </div>
   </body>
 </html>

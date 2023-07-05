@@ -1,12 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+* {
+  font-family: 'Quicksand', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* border: 1px solid gray; */
+}
+
 #container {
   display: flex;
+  flex-direction: column;
   justify-items: center;
   align-items: start;
 }
 
-#grid-container {
+#game {
   display: flex;
+  justify-items: center;
+  align-items: start;
+  gap: 96px;
+  margin: auto;
+}
 
+#title {
+  color: blue;
+  margin: 0 auto;
+}
+
+#info {
+  margin-right: 20px;
+}
+
+#color-btns-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+#grid-container {
+  margin-top: 20px;
+  display: flex;
   flex-direction: column;
   height: 480px;
   width: 480px;
@@ -33,6 +67,68 @@
   background: black;
 }
 
-button {
-  margin: 0 10px;
+#start-game,
+.color-btn {
+  background: purple;
+  border: 1px solid pink;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+#start-game:hover,
+#start-game:active,
+.color-btn:hover,
+.color-btn:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: green;
+}
+
+#start-game:active,
+.color-btn:active {
+  opacity: 0.5;
+}
+
+#start-game {
+  background: springgreen;
+  color: black;
+}
+
+.white {
+  background: white;
+  color: black;
+}
+
+.black {
+  background: black;
+}
+
+#rules {
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+  align-items: center;
+}
+
+#tip {
+  font-size: small;
+  color: tomato;
+  margin: 0;
 }
