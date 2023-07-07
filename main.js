@@ -4,6 +4,7 @@ const eraserButton = document.querySelector('.btn-eraser');
 const blackButton = document.querySelector('.btn-black');
 const rainbowButton = document.querySelector('.btn-rainbow');
 const clearButton = document.querySelector('#erase-grid');
+const toggleButton = document.querySelector('#toggle-lines');
 let color = 'black';
 let size = 0;
 let cells;
@@ -21,8 +22,8 @@ const changeBoxColor = (event) => {
 };
 
 const createGrid = (size = 16) => {
+  gridContainer.classList.add('outer-borders');
   gridContainer.textContent = '';
-  gridContainer.classList.add('new-grid');
   for (let i = 0; i < size; i++) {
     const row = document.createElement('div');
     row.classList = 'row';
@@ -80,6 +81,13 @@ const main = () => {
   clearButton.addEventListener('click', () => {
     Array.from(cells).forEach((cell) => {
       cell.style.background = 'white';
+    });
+  });
+
+  toggleButton.addEventListener('click', () => {
+    gridContainer.classList.toggle('new-grid');
+    Array.from(cells).forEach((cell) => {
+      cell.classList.toggle('cell-borders');
     });
   });
 

@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   font-family: 'Quicksand', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  /* border: 1px solid gray; */
 }
 
 body {
   background-color: ivory;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #container {
@@ -14,6 +21,7 @@ body {
   flex-direction: column;
   justify-items: center;
   align-items: start;
+  margin: 1.5rem 0;
 }
 
 #title {
@@ -38,10 +46,11 @@ body {
 
 #grid-info {
   text-align: center;
+  margin: 10px 0;
 }
 
 #title {
-  color: blue;
+  color: #39bdb4;
   margin: 0 auto;
 }
 
@@ -62,9 +71,8 @@ body {
   width: 540px;
 }
 
-.new-grid {
-  border-left: 1pt solid gray;
-  border-top: 1pt solid gray;
+.outer-borders {
+  border: 1pt solid lightblue;
 }
 
 .row {
@@ -74,16 +82,19 @@ body {
 
 .cell {
   display: flex;
-  border-right: 1pt solid gray;
-  border-bottom: 1pt solid gray;
   flex: 1;
+}
+
+.cell-borders {
+  border: 0.5pt solid lightblue;
+  border: 0.5pt solid lightblue;
 }
 
 #start-game,
 .menu-btn {
   width: 100%;
-  background: darkcyan;
-  border: 1px solid darkcyan;
+  background: #01a4b2;
+  border: 1px solid #01a4b2;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
   box-sizing: border-box;
@@ -105,18 +116,23 @@ body {
   vertical-align: middle;
 }
 
-#start-game:hover,
-#start-game:active {
-  background-color: initial;
-  background-position: 0 0;
-  color: darkolivegreen;
-}
-
 .menu-btn:hover,
 .menu-btn:active {
   background-color: initial;
   background-position: 0 0;
-  color: darkcyan;
+  color: #01a4b2;
+}
+
+#start-game {
+  background: #68bd47;
+  border: 1px solid #68bd47;
+}
+
+#start-game:hover,
+#start-game:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #68bd47;
 }
 
 #start-game:active,
@@ -124,19 +140,35 @@ body {
   opacity: 0.5;
 }
 
-#start-game {
-  background: darkolivegreen;
-  border: 1px solid darkolivegreen;
+.btn-color:focus {
+  background-color: initial;
+  background-position: 0 0;
+  color: #01a4b2;
 }
 
 .btn-eraser {
-  background: darkgoldenrod;
-  border: 1px solid darkgoldenrod;
+  background: #ff9e01;
+  border: 1px solid #ff9e01;
+}
+
+.btn-eraser:hover,
+.btn-eraser:active,
+.cell-eraser:focus {
+  background-color: initial;
+  background-position: 0 0;
+  color: #ff9e01;
 }
 
 .btn-borders {
-  background: darkslateblue;
-  border: 1px solid darkslateblue;
+  background: #fe3471;
+  border: 1px solid #fe3471;
+}
+
+.btn-borders:hover,
+.btn-borders:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #fe3471;
 }
 
 .btns-space {
@@ -146,14 +178,32 @@ body {
 #image {
   display: flex;
   flex-direction: column;
-  justify-items: start;
+  justify-content: start;
   align-items: center;
+}
+
+#tips-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 #tips {
   text-align: center;
+  margin-top: 20px;
 }
 
 .tip {
   font-size: small;
+  margin: 10px 0;
+}
+
+#footer {
+  color: white;
+  font-size: small;
+  background: #01a4b2;
+  padding: 8px;
+  margin-top: auto;
+  text-align: center;
 }

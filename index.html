@@ -6,14 +6,16 @@
     <title>Etch a Sketch!</title>
     <script src="./main.js" defer></script>
     <link rel="stylesheet" type="text/css" href="./style.css"></link>
+    <link rel="icon" href="./images/favicon.ico" />
+    <link rel="alternate icon" href="./images/favicon.ico" type="image/png" sizes="16x16" />
   </head>
   <body>
 
     <div id="container">
       <div id="title">
-        <div><img src="./images/icecream.png" style="height: 40px; rotate: 15deg;"/></div>
+        <div><img src="./images/celeste.svg" alt="Celeste (my daughter)" style="height: 40px; rotate: 8deg;"/></div>
         <h1>Celeste's Etch a Sketch</h1>
-        <div><img src="./images/rainbow.png" style="height: 50px;"/></div>
+        <div><img src="./images/rainbow.png" alt="Rainbow" style="height: 50px; rotate: -5deg;"/></div>
       </div>
       <div id="game">
         <div id="commands">
@@ -22,11 +24,11 @@
             <p id="grid-info"></p>
           </div>
           <div id="menu-btns-container">
-            <button class="menu-btn btn-black">Black</button>
-            <button class="menu-btn btn-rainbow">Rainbow</button>
-            <button class="menu-btn btn-select">Choose your color</button>
+            <button class="menu-btn btn-color btn-black">Black</button>
+            <button class="menu-btn btn-color btn-rainbow">Rainbow</button>
+            <button class="menu-btn btn-color btn-select">Choose your color</button>
             <span class="btns-space"></span>
-            <button id="erase-cell" class="menu-btn btn-eraser">Eraser</button>
+            <button id="erase-cell" class="menu-btn btn-eraser cell-eraser">Eraser</button>
             <button id="erase-grid" class="menu-btn btn-eraser">Clear grid</button>
             <span class="btns-space"></span>
             <button id="toggle-lines" class="menu-btn btn-borders">Toggle lines</button>
@@ -35,16 +37,21 @@
         </div>
         <div id="grid-container"></div>
         <div id="rules">
-          <img src="./images/unicorn.png" style="height: 300px; margin: 30px 0;"/>
+          <img src="./images/unicorn.png" alt="Unicorn" style="height: 300px; margin: 30px 0;"/>
           <div id="tips">
-            <h2 >Free tip</h2>        
+            <div id="tips-title">
+              <img src="./images/idea.svg" alt="Lightbulb" style="height: 25px;">
+              <h2 >Free tips</h2>  
+            </div>
             <p class="tip">Hold SHIFT to stop painting</p>
+            <p class="tip">Don't forget to smile!</p>
+            <p class="tip">Please, leave an upvote if you liked it</p>
           </div>
         </div>
-
       </div>
-      
-
     </div>
+    <footer id="footer">
+      <p>Made with 🍦 and 🍩 by Andrea Raccagni - 2023</p>
+    </footer>
   </body>
 </html>
