@@ -11,23 +11,35 @@
 
     <div id="container">
       <div id="title">
-        <h1>Etch a Sketch</h1>
+        <div><img src="./images/icecream.png" style="height: 40px; rotate: 15deg;"/></div>
+        <h1>Celeste's Etch a Sketch</h1>
+        <div><img src="./images/rainbow.png" style="height: 50px;"/></div>
       </div>
       <div id="game">
-        <div id="info">
-          <button id="start-game">Start game</button>
-          <p id="grid-size"></p>
-          <div id="color-btns-container">
-            <button class="color-btn white">White</button>
-            <button class="color-btn black">Black</button>
-            <button class="color-btn random">Random</button>
-            <button class="color-btn select">Select color</button>
+        <div id="commands">
+          <div>
+            <button id="start-game">Start game</button>
+            <p id="grid-info"></p>
           </div>
+          <div id="menu-btns-container">
+            <button class="menu-btn btn-black">Black</button>
+            <button class="menu-btn btn-rainbow">Rainbow</button>
+            <button class="menu-btn btn-select">Choose your color</button>
+            <span class="btns-space"></span>
+            <button id="erase-cell" class="menu-btn btn-eraser">Eraser</button>
+            <button id="erase-grid" class="menu-btn btn-eraser">Clear grid</button>
+            <span class="btns-space"></span>
+            <button id="toggle-lines" class="menu-btn btn-borders">Toggle lines</button>
+          </div>
+            <span class="btns-space"></span>
         </div>
         <div id="grid-container"></div>
         <div id="rules">
-          <h2>Rules and tips</h2>        
-          <p id="tip">Hold SHIFT to stop coloring</p>
+          <img src="./images/unicorn.png" style="height: 300px; margin: 30px 0;"/>
+          <div id="tips">
+            <h2 >Free tip</h2>        
+            <p class="tip">Hold SHIFT to stop painting</p>
+          </div>
         </div>
 
       </div>
