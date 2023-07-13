@@ -9,7 +9,6 @@ const toggleLines = document.querySelector('#toggle-lines');
 const colorValue = document.querySelector('#color-value');
 const colorPicker = document.querySelector('#colorPicker');
 const menuBtns = document.querySelectorAll('.menu-btn');
-let size = 16;
 let color;
 let cells;
 
@@ -61,7 +60,7 @@ const createGrid = (size) => {
 
 const promptForNewGrid = () => {
   startButton.addEventListener('click', () => {
-    size = prompt('Enter a size for the grid between 10 and 100');
+    let size = prompt('Enter a size for the grid between 10 and 100');
     if (!size) {
       return;
     }
@@ -129,7 +128,7 @@ const main = () => {
   });
 
   promptForNewGrid();
-  createGrid(size);
+  createGrid((size = 16));
 };
 
 main();
