@@ -9,8 +9,9 @@ const toggleLines = document.querySelector('#toggle-lines');
 const colorValue = document.querySelector('#color-value');
 const colorPicker = document.querySelector('#colorPicker');
 const menuBtns = document.querySelectorAll('.menu-btn');
+let cells = document.getElementsByClassName('cell');
 let color;
-let cells;
+let pickedColor = '#000000';
 
 const changeBoxColor = (event) => {
   if (!event.shiftKey) {
@@ -35,8 +36,8 @@ const setFocusOnButton = () => {
 const createGrid = (size) => {
   gridContainer.classList.add('outer-borders');
   gridContainer.textContent = '';
-  colorPicker.value = '#000000';
-  colorValue.textContent = '#000000';
+  colorPicker.value = pickedColor;
+  colorValue.textContent = pickedColor;
   for (let i = 0; i < size; i++) {
     const row = document.createElement('div');
     row.classList = 'row';
@@ -52,7 +53,6 @@ const createGrid = (size) => {
       sizeOutput.textContent = `Size: ${size} x ${size}`;
     }
   }
-  cells = document.getElementsByClassName('cell');
   Array.from(cells).forEach((cell) => {
     cell.addEventListener('mouseenter', changeBoxColor);
   });
@@ -97,20 +97,22 @@ const main = () => {
   });
 
   colorpickerButton.addEventListener('click', () => {
-    color = '#000000';
+    color = pickedColor;
     colorPicker.click();
   });
 
   colorPicker.addEventListener('input', (event) => {
     color = event.target.value;
+    pickedColor = event.target.value;
     colorValue.textContent = '';
-    colorText = document.createTextNode(event.target.value);
-    colorValue.appendChild(colorText);
+    const value = document.createTextNode(event.target.value);
+    console.log(value);
+    colorValue.appendChild(value);
   });
 
   clearButton.addEventListener('click', () => {
     Array.from(cells).forEach((cell) => {
-      cell.style.background = 'white';
+      cell.style.background = '#ffffff';
       cell.style.transition = 'background 0.7s';
       setTimeout(function () {
         cell.style.transition = '';
