@@ -12,23 +12,30 @@
   <body>
 
     <div id="container">
-      <div id="title">
+      <header id="header">
         <div><img src="./images/celeste.svg" alt="Celeste (my daughter)" style="height: 40px; rotate: 8deg;"/></div>
         <h1>Celeste's Etch a Sketch</h1>
         <div><img src="./images/rainbow.png" alt="Rainbow" style="height: 50px; rotate: -5deg;"/></div>
-      </div>
+      </header>
       <div id="game">
         <div id="commands">
           <div>
-            <button id="start-game">Start game</button>
+            <button id="start-to-color">Start to color</button>
             <p id="grid-info"></p>
           </div>
           <div id="menu-btns-container">
-            <button class="menu-btn btn-color btn-black">Black</button>
             <button class="menu-btn btn-color btn-rainbow">Rainbow</button>
-            <button class="menu-btn btn-color btn-select">Choose your color</button>
+            <button class="menu-btn btn-color btn-colorpicker">
+              <span>Pick your favorite</span>
+              <div id="picked-color">
+                <small id="color-value"></small>
+                <input id="colorPicker" type="color" value="#000000"/ >         
+              </div>
+ 
+            </button>
+
             <span class="btns-space"></span>
-            <button id="erase-cell" class="menu-btn btn-eraser cell-eraser">Eraser</button>
+            <button id="erase-cell" class="menu-btn btn-eraser btn-white">Eraser</button>
             <button id="erase-grid" class="menu-btn btn-eraser">Clear grid</button>
             <span class="btns-space"></span>
             <button id="toggle-lines" class="menu-btn btn-borders">Toggle lines</button>
@@ -45,13 +52,14 @@
             </div>
             <p class="tip">Hold SHIFT to stop painting</p>
             <p class="tip">Don't forget to smile!</p>
-            <p class="tip">Please, leave an upvote if you liked it</p>
+            <p class="tip"><a href="#" class="plain-link" target:"blank">Please, leave an upvote if you liked it</a></p>
+            <span style="font-size: x-large;">🧸</span>
           </div>
         </div>
       </div>
     </div>
     <footer id="footer">
-      <p>Made with 🍦 and 🍩 by Andrea Raccagni - 2023</p>
+      <p>Made with 🍦 and 🍩 by Andrea Raccagni - The Odin Project 2023</p>
     </footer>
   </body>
 </html>

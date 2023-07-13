@@ -24,11 +24,13 @@ body {
   margin: 1.5rem 0;
 }
 
-#title {
+#header {
   display: flex;
   justify-items: center;
   align-items: center;
   gap: 1rem;
+  color: #39bdb4;
+  margin: 0 auto;
 }
 
 #game {
@@ -47,11 +49,6 @@ body {
 #grid-info {
   text-align: center;
   margin: 10px 0;
-}
-
-#title {
-  color: #39bdb4;
-  margin: 0 auto;
 }
 
 #menu-btns-container {
@@ -90,7 +87,7 @@ body {
   border: 0.5pt solid lightblue;
 }
 
-#start-game,
+#start-to-color,
 .menu-btn {
   width: 100%;
   background: #01a4b2;
@@ -123,19 +120,19 @@ body {
   color: #01a4b2;
 }
 
-#start-game {
+#start-to-color {
   background: #68bd47;
   border: 1px solid #68bd47;
 }
 
-#start-game:hover,
-#start-game:active {
+#start-to-color:hover,
+#start-to-color:active {
   background-color: initial;
   background-position: 0 0;
   color: #68bd47;
 }
 
-#start-game:active,
+#start-to-color:active,
 .menu-btn:active {
   opacity: 0.5;
 }
@@ -153,7 +150,7 @@ body {
 
 .btn-eraser:hover,
 .btn-eraser:active,
-.cell-eraser:focus {
+.btn-white:focus {
   background-color: initial;
   background-position: 0 0;
   color: #ff9e01;
@@ -173,6 +170,19 @@ body {
 
 .btns-space {
   margin: 5px;
+}
+
+.btn-colorpicker,
+#picked-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-colorpicker {
+  flex-direction: column;
+  gap: 8px;
 }
 
 #image {
@@ -199,6 +209,11 @@ body {
   margin: 10px 0;
 }
 
+.plain-link {
+  text-decoration: none;
+  color: black;
+}
+
 #footer {
   color: white;
   font-size: small;
@@ -206,4 +221,23 @@ body {
   padding: 8px;
   margin-top: auto;
   text-align: center;
+}
+
+#colorPicker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+#colorPicker::-webkit-color-swatch {
+  border-radius: 100%;
+  border: 1pt solid white;
+}
+#colorPicker::-moz-color-swatch {
+  border-radius: 100%;
+  border: none;
 }
