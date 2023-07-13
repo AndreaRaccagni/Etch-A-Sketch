@@ -172,6 +172,10 @@ body {
   margin: 5px;
 }
 
+#color-value {
+  font-size: smaller;
+}
+
 .btn-colorpicker,
 #tips-title,
 #picked-color {
@@ -220,17 +224,19 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 30px;
-  height: 30px;
+  width: 70px;
+  height: 70px;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  display: flex;
+  flex: auto;
 }
 #colorPicker::-webkit-color-swatch {
-  border-radius: 8px;
+  border-radius: 100%;
   border: 1pt solid white;
 }
 #colorPicker::-moz-color-swatch {
-  border-radius: 8px;
+  border-radius: 100%;
   border: none;
 }

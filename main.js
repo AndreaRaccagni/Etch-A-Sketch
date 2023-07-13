@@ -3,14 +3,15 @@ const startButton = document.getElementById('start-to-color');
 const sizeOutput = document.getElementById('grid-info');
 const eraserButton = document.querySelector('.btn-eraser');
 const rainbowButton = document.querySelector('.btn-rainbow');
-const colorpickerButton = document.querySelector('.btn-colorpicker');
 const clearButton = document.querySelector('#erase-grid');
 const toggleLines = document.querySelector('#toggle-lines');
 const colorValue = document.querySelector('#color-value');
-const colorPicker = document.querySelector('#colorPicker');
+const colorpickerButton = document.querySelector('.btn-colorpicker');
+const colorpickerInput = document.querySelector('#colorPicker');
 const menuBtns = document.querySelectorAll('.menu-btn');
 let cells = document.getElementsByClassName('cell');
 let color;
+let lastSelected;
 let pickedColor = '#000000';
 
 const changeBoxColor = (event) => {
@@ -25,11 +26,11 @@ const changeBoxColor = (event) => {
 };
 
 const setFocusOnButton = () => {
-  const lastSelected = [...menuBtns].find((button) =>
-    button.classList.value.includes(color)
+  const focused = [...menuBtns].find(
+    (button) => button.classList.value === lastSelected
   );
-  if (lastSelected) {
-    lastSelected.focus();
+  if (focused) {
+    focused.focus();
   }
 };
 
@@ -88,25 +89,26 @@ const setRainbowColor = () => {
 };
 
 const main = () => {
-  eraserButton.addEventListener('click', () => {
+  eraserButton.addEventListener('click', (e) => {
     color = '#ffffff';
+    lastSelected = e.target.classList.value;
   });
 
-  rainbowButton.addEventListener('click', () => {
+  rainbowButton.addEventListener('click', (e) => {
     color = 'rainbow';
+    lastSelected = e.target.classList.value;
   });
 
-  colorpickerButton.addEventListener('click', () => {
+  colorpickerButton.addEventListener('click', (e) => {
     color = pickedColor;
-    colorPicker.click();
+    lastSelected = e.target.classList.value;
   });
 
-  colorPicker.addEventListener('input', (event) => {
+  colorpickerInput.addEventListener('input', (event) => {
     color = event.target.value;
     pickedColor = event.target.value;
     colorValue.textContent = '';
     const value = document.createTextNode(event.target.value);
-    console.log(value);
     colorValue.appendChild(value);
   });
 
