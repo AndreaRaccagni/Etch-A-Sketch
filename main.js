@@ -1,4 +1,4 @@
-let gridContainer = document.getElementById('grid-container');
+const gridContainer = document.getElementById('grid-container');
 const startButton = document.getElementById('start-to-color');
 const sizeOutput = document.getElementById('grid-info');
 const eraserButton = document.querySelector('.btn-eraser');
@@ -105,6 +105,7 @@ const main = () => {
   });
 
   colorpickerInput.addEventListener('input', (event) => {
+    lastSelected = colorpickerButton.classList.value;
     color = event.target.value;
     pickedColor = event.target.value;
     colorValue.textContent = '';
