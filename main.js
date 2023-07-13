@@ -6,6 +6,7 @@ const colorpickerButton = document.querySelector('.btn-colorpicker');
 const clearButton = document.querySelector('#erase-grid');
 const toggleLines = document.querySelector('#toggle-lines');
 const colorValue = document.querySelector('#color-value');
+const colorPicker = document.querySelector('#colorPicker');
 let color;
 let size;
 let cells;
@@ -25,6 +26,7 @@ const changeBoxColor = (event) => {
 const createGrid = (size = 16) => {
   gridContainer.classList.add('outer-borders');
   gridContainer.textContent = '';
+  colorPicker.value = '#000000';
   colorValue.textContent = '#000000';
   for (let i = 0; i < size; i++) {
     const row = document.createElement('div');
@@ -102,7 +104,9 @@ const main = () => {
     const lastSelected = [...menuBtns].find((button) =>
       button.classList.value.includes(color)
     );
-    lastSelected.focus();
+    if (lastSelected) {
+      lastSelected.focus();
+    }
   });
 
   toggleLines.addEventListener('click', () => {
@@ -114,7 +118,9 @@ const main = () => {
     const lastSelected = [...menuBtns].find((button) =>
       button.classList.value.includes(color)
     );
-    lastSelected.focus();
+    if (lastSelected) {
+      lastSelected.focus();
+    }
   });
 
   createGrid();
