@@ -1,5 +1,6 @@
 let gridContainer = document.getElementById('grid-container');
 const startButton = document.getElementById('start-to-color');
+const sizeOutput = document.getElementById('grid-info');
 const eraserButton = document.querySelector('.btn-eraser');
 const rainbowButton = document.querySelector('.btn-rainbow');
 const colorpickerButton = document.querySelector('.btn-colorpicker');
@@ -7,14 +8,14 @@ const clearButton = document.querySelector('#erase-grid');
 const toggleLines = document.querySelector('#toggle-lines');
 const colorValue = document.querySelector('#color-value');
 const colorPicker = document.querySelector('#colorPicker');
+const menuBtns = document.querySelectorAll('.menu-btn');
+let size = 16;
 let color;
-let size;
 let cells;
-let cell;
 
 const changeBoxColor = (event) => {
   if (!event.shiftKey) {
-    cell = event.target;
+    const cell = event.target;
     if (color === 'rainbow') {
       const rainbowColor = setRainbowColor();
       cell.style.background = rainbowColor;
@@ -23,7 +24,16 @@ const changeBoxColor = (event) => {
   }
 };
 
-const createGrid = (size = 16) => {
+const setFocusOnButton = () => {
+  const lastSelected = [...menuBtns].find((button) =>
+    button.classList.value.includes(color)
+  );
+  if (lastSelected) {
+    lastSelected.focus();
+  }
+};
+
+const createGrid = (size) => {
   gridContainer.classList.add('outer-borders');
   gridContainer.textContent = '';
   colorPicker.value = '#000000';
@@ -35,18 +45,32 @@ const createGrid = (size = 16) => {
     for (let j = 0; j < size; j++) {
       const cell = document.createElement('div');
       cell.classList = 'cell';
-      cell.style.background = 'white';
+      cell.style.background = '#ffffff';
       cell.classList.add('cell-borders');
+      row.appendChild(cell);
       color = 'rainbow';
       rainbowButton.focus();
-      row.appendChild(cell);
-      const sizeOutput = document.getElementById('grid-info');
       sizeOutput.textContent = `Size: ${size} x ${size}`;
     }
   }
   cells = document.getElementsByClassName('cell');
   Array.from(cells).forEach((cell) => {
     cell.addEventListener('mouseenter', changeBoxColor);
+  });
+};
+
+const promptForNewGrid = () => {
+  startButton.addEventListener('click', () => {
+    size = prompt('Enter a size for the grid between 10 and 100');
+    if (!size) {
+      return;
+    }
+    size = Number(size);
+    if (isNaN(size) || size < 10 || size > 100 || !Number.isInteger(size)) {
+      alert('The input must be an integer between 10 and 100');
+      return;
+    }
+    createGrid(size);
   });
 };
 
@@ -65,30 +89,23 @@ const setRainbowColor = () => {
 };
 
 const main = () => {
-  startButton.addEventListener('click', () => {
-    do {
-      size = Number(prompt('Enter a size for the grid between 10 and 100 '));
-    } while (isNaN(size) || size < 10 || size > 100 || !Number.isInteger(size));
-    createGrid(size);
-  });
-
   eraserButton.addEventListener('click', () => {
-    color = 'white';
+    color = '#ffffff';
   });
 
   rainbowButton.addEventListener('click', () => {
     color = 'rainbow';
   });
 
-  colorpickerButton.addEventListener('click', (event) => {
+  colorpickerButton.addEventListener('click', () => {
     color = '#000000';
     colorPicker.click();
   });
 
-  colorPicker.addEventListener('input', (e) => {
-    color = e.target.value;
+  colorPicker.addEventListener('input', (event) => {
+    color = event.target.value;
     colorValue.textContent = '';
-    colorText = document.createTextNode(e.target.value);
+    colorText = document.createTextNode(event.target.value);
     colorValue.appendChild(colorText);
   });
 
@@ -100,13 +117,7 @@ const main = () => {
         cell.style.transition = '';
       }, 700);
     });
-    const menuBtns = document.querySelectorAll('.menu-btn');
-    const lastSelected = [...menuBtns].find((button) =>
-      button.classList.value.includes(color)
-    );
-    if (lastSelected) {
-      lastSelected.focus();
-    }
+    setFocusOnButton();
   });
 
   toggleLines.addEventListener('click', () => {
@@ -114,16 +125,11 @@ const main = () => {
     Array.from(cells).forEach((cell) => {
       cell.classList.toggle('cell-borders');
     });
-    const menuBtns = document.querySelectorAll('.menu-btn');
-    const lastSelected = [...menuBtns].find((button) =>
-      button.classList.value.includes(color)
-    );
-    if (lastSelected) {
-      lastSelected.focus();
-    }
+    setFocusOnButton();
   });
 
-  createGrid();
+  promptForNewGrid();
+  createGrid(size);
 };
 
 main();
