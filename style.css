@@ -173,16 +173,16 @@ body {
 }
 
 .btn-colorpicker,
+#tips-title,
 #picked-color {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
 }
 
 .btn-colorpicker {
   flex-direction: column;
-  gap: 8px;
 }
 
 #image {
@@ -190,13 +190,6 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-}
-
-#tips-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
 }
 
 #tips {
@@ -227,17 +220,17 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 #colorPicker::-webkit-color-swatch {
-  border-radius: 100%;
+  border-radius: 8px;
   border: 1pt solid white;
 }
 #colorPicker::-moz-color-swatch {
-  border-radius: 100%;
+  border-radius: 8px;
   border: none;
 }
