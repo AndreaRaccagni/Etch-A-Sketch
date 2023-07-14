@@ -234,7 +234,6 @@ body {
 }
 #colorPicker::-webkit-color-swatch {
   border-radius: 100%;
-  border: 1pt solid white;
 }
 #colorPicker::-moz-color-swatch {
   border-radius: 100%;
